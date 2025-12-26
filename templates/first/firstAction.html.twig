@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+  <p class="action-text">
+    This is action - {{action}}
+  </p>
+  <h4>{{ceil(45.23645)}}</h4>
+  <h4>{{vitaly()}}</h4>
+
+  {% if number > 1000 %}
+    <p>Число больше 1000  - <span>{{number}}</span></p>  
+  {% else %}
+    <p>Число меньше 1000 - <span>{{number}}</span></p>
+  {% endif %}
+  <ul>
+    {% for user in listUsers|addIdxArr %}
+      <li>{{user|upper}}</li>
+    {% endfor %}
+  </ul>
+  <div>
+  <h4>Вывод контроллера:</h4>
+  {{render(controller('App\\Controller\\FirstController::test2'))}}
+  </div> 
+    {{ dump(listUsers) }}
+    
+{% endblock %}
